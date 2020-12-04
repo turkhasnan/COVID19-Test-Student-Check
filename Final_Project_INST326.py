@@ -60,10 +60,13 @@ if __name__ == "__main__":
     
     if student.covid == "yes":
         print(" ")
-        student.id = int(input("Student ID: "))
-        
-        if len(str(student.id)) != 8 :
-            raise ValueError
+        while True:
+            student.id = int(input("Student ID: "))
+            
+            if len(str(student.id)) != 8 :
+                print("Please try again")
+            else:
+                break
         
         int(student.id)
     elif student.covid == "no":

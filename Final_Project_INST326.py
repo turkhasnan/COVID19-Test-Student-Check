@@ -145,7 +145,7 @@ if __name__ == "__main__":
     randnum = random.randint(3000, 8000)
     print(f"Here is your building access code: {randnum}")
    
-    #show info
+    #Show info
     print(" ")
     student.info()
             

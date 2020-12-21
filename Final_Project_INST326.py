@@ -92,22 +92,37 @@ def slots():
         capacity(timeslot2)
         timeslot2 += 1
         print(" ")
-        print("Your time is set to 9:00 to 10:00")
+        print("Your time is set to 10:30 to 10:00")
 
     elif timeslot == "3":
+        capacity(timeslot3)
         timeslot3 += 1
+        print(" ")
+        print("Your time is set to 12:00 to 1:00")
 
     elif timeslot == "4":
+        capacity(timeslot4)
         timeslot4 += 1
+        print(" ")
+        print("Your time is set to 1:30 to 2:30")
 
     elif timeslot == "5":
+        capacity(timeslot5)
         timeslot5 += 1
+        print(" ")
+        print("Your time is set to 3:00 to 4:00")
 
     elif timeslot == "6":
+        capacity(timeslot6)
         timeslot6 += 1
+        print(" ")
+        print("Your time is set to 4:30 to 5:30")
 
     elif timeslot == "7":
+        capacity(timeslot7)
         timeslot7 += 1
+        print(" ")
+        print("Your time is set to 6:00 to 7:00")
 
     else:
         print("*****please pick a number between 1 and 7*****")
@@ -122,9 +137,8 @@ if __name__ == "__main__":
     roomcap3 = 0
     roomcap4 = 0
     
-    df = pd.read_csv(roomcapacity.csv)
-    saved_column = df['Name']
-    roomcount = len(df.Name)
+    df = pd.read_csv("roomcapacity.csv")
+    roomcount = len(df["Name"])
     
     # Name input
     student.first_name = input("Please enter your first name: ")

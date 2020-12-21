@@ -1,6 +1,10 @@
+# Name: Turk Hasnan, Andrew Rojas, Betty Kouadio, Fabrice Tedonjeu
+# Directory ID: thasnan, arojas, bkouadio, ftedonjeu
+# Date: 12/20/2020
+# Assignment: Final Project
+
 import sys
 import random
-import time
 import pandas as pd
 
 class  Name:
@@ -57,10 +61,32 @@ def capacity(roomcap):
     """
     if roomcap >= 10:
         print("Sorry, the room is full. Please try again and pick a different room.")
+        quit()
         
    
 
 def slots():
+    """This function displays the time and the room availability for students to choose. Also displays the amount of students in each slot.
+    
+    Attributes:
+        timeslot1:
+            stores the number of students from a csv file
+        timeslot2:
+            stores a random number between 0 and 10
+        timeslot3:
+            stores a random number between 0 and 10
+        timeslot4:
+            stores a random number between 0 and 10
+        timeslot5:
+            stores a random number between 0 and 10
+        timeslot6:
+            stores a random number between 0 and 10
+        timeslot7:
+            stores a random number between 0 and 10
+            
+    Side effect:
+        Calls capacity function to check if room has reached capacity. If not, adds 1
+    """
 
     timeslot1 = roomcount
     timeslot2 = random.randint(0,10)
@@ -70,7 +96,7 @@ def slots():
     timeslot6 = random.randint(0,10)
     timeslot7 = random.randint(0,10)
 
-    print("Time availibility:\n")
+    print("Time availability :\n")
     
     print(f"1) 9:00 - 10:00: {timeslot1} students are here")
     print(f"2) 10:30 - 11:30: {timeslot2} students are here")
@@ -138,7 +164,7 @@ if __name__ == "__main__":
     roomcap4 = 0
     
     df = pd.read_csv("roomcapacity.csv")
-    roomcount = len(df["Name"])
+    roomcount = len(df["Names"])
     
     # Name input
     student.first_name = input("Please enter your first name: ")

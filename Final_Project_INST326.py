@@ -1,6 +1,7 @@
-
 import sys
 import random
+import time
+import pandas as pd
 
 class  Name:
     """gets input for information from a student
@@ -43,7 +44,7 @@ class  Name:
         print(f"Covid check: {self.covid}")
         print(f"reason: {self.reason}")
         print(f"room #: {self.room}")
-        
+
         
 def capacity(roomcap):
     """Checks the room capacity. If it is 20 people, then the room is full
@@ -54,19 +55,76 @@ def capacity(roomcap):
     Side effect:
         After the message, the program quits.
     """
-    if roomcap >= 21:
+    if roomcap >= 10:
         print("Sorry, the room is full. Please try again and pick a different room.")
-        quit()
-   
         
+   
 
+def slots():
+
+    timeslot1 = roomcount
+    timeslot2 = random.randint(0,10)
+    timeslot3 = random.randint(0,10)
+    timeslot4 = random.randint(0,10)
+    timeslot5 = random.randint(0,10)
+    timeslot6 = random.randint(0,10)
+    timeslot7 = random.randint(0,10)
+
+    print("Time availibility:\n")
+    
+    print(f"1) 9:00 - 10:00: {timeslot1} students are here")
+    print(f"2) 10:30 - 11:30: {timeslot2} students are here")
+    print(f"3) 12:00 - 1:00: {timeslot3} students are here")
+    print(f"4) 1:30 - 2:30: {timeslot4} students are here")
+    print(f"5) 3:00 - 4:00: {timeslot5} students are here")
+    print(f"6) 4:30 - 5:30: {timeslot6} students are here")
+    print(f"7) 6:00 - 7:00: {timeslot7} students are here\n")
+    
+    timeslot = input("Please enter the number of time slot that you would like: ")
+    
+    if timeslot == "1":
+        capacity(timeslot1)
+        timeslot1+=1
+        print(" ")
+        print("Your time is set to 9:00 to 10:00")
+
+    elif timeslot == "2":
+        capacity(timeslot2)
+        timeslot2 += 1
+        print(" ")
+        print("Your time is set to 9:00 to 10:00")
+
+    elif timeslot == "3":
+        timeslot3 += 1
+
+    elif timeslot == "4":
+        timeslot4 += 1
+
+    elif timeslot == "5":
+        timeslot5 += 1
+
+    elif timeslot == "6":
+        timeslot6 += 1
+
+    elif timeslot == "7":
+        timeslot7 += 1
+
+    else:
+        print("*****please pick a number between 1 and 7*****")
+
+
+
+        
 if __name__ == "__main__":
-
     student = Name()
     roomcap1 = 0
     roomcap2 = 0
     roomcap3 = 0
     roomcap4 = 0
+    
+    df = pd.read_csv(roomcapacity.csv)
+    saved_column = df['Name']
+    roomcount = len(df.Name)
     
     # Name input
     student.first_name = input("Please enter your first name: ")
@@ -99,8 +157,8 @@ if __name__ == "__main__":
     while True:
         print(" ")
         print("What is the reason for entering? \n 1) Teacher appointment \n or \n 2) lab time \n ")
-
-        student.reason = int(input("please enter the number: "))
+        student.reason = int(input("Please enter the 1 or 2: "))
+        print(" ")
         
         if student.reason == 1:
             break
@@ -114,39 +172,40 @@ if __name__ == "__main__":
     if student.reason == 1:
         while True:
             student.room = int(input("which room would you like? 1 or 2: "))
+            print(" ")
             if student.room == 1:
                 roomcap1 = roomcap1 + 1
                 capacity(roomcap1)
-                print("This is your alloted time: ")
+                slots()
                 print(" ")
+
                 break 
             elif student.room == 2:
                 roomcap2 = roomcap2 + 1
                 capacity(roomcap2)
-                print("This is your alloted time: ")
+                slots()
                 print(" ")
                 break
     elif student.reason == 2:
         while True:
             student.room = int(input("which room would you like 3 or 4: "))
+            print(" ")
             if student.room == 3:
                 roomcap3 = roomcap3 + 1
                 capacity(roomcap3)
-                print("This is your alloted time: ")
+                slots()
                 print(" ")
                 break
             elif student.room == 4:
                 roomcap4 = roomcap4 + 1
                 capacity(roomcap4)
-                print("This is your alloted time: ")
+                slots()
                 print(" ")
                 break
     #building enter code
     randnum = random.randint(3000, 8000)
     print(f"Here is your building access code: {randnum}")
-   
+
     #Show info
     print(" ")
     student.info()
-            
-    
